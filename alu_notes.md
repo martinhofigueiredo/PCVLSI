@@ -3,7 +3,7 @@
 Everythign is modular and made o smaller blocks until we get logic functions
 
 
-## MACRO ALU__
+## MACRO ALU
 
 Components for Macro ALU (16 BIT):
 	- 16x 1 Bit ALU
@@ -45,4 +45,6 @@ TO DO LIST:
 	-full_adder
 		- [ ] Schem
 		- [ ] Layout
+## 📓 Refs	
+https://acadpubl.eu/hub/2018-119-15/1/81.pdf
  
