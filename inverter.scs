@@ -1,0 +1,36 @@
+// Inverter circuit
+
+simulator lang=spice
+.lib "cmos250.lib" TT 
+simulator lang=spectre
+
+Settings options rawfmt=psfbin
+
+// simulatorOptions options temp=70 gmindc=1e-15
+
+parameters	Wp=300n Wmin=300n
+parameters	Supply=2.5 load=1.5f
+parameters  pulse_delay=1ns rise_time=100ps fall_time=100ps high_time=2ns perd=4.2ns
+
+global 0 VDD
+
+subckt inverter in out
+M1 (out in VDD VDD)	PMOS l=250n w=Wp
+M4 (out in 0 0) 	NMOS l=250n w=300n
+ends inverter
+
+//***** Power supply signals
+Vdd (VDD 0) vsource dc=Supply
+// Va  (A 0) vsource dc=0
+Va  (A 0) vsource type=pulse val0=0 val1=Supply period=perd delay=pulse_delay rise=rise_time fall=fall_time width=high_time
+
+//***** Instance of the inverter and load
+I1 (A Y) 	inverter
+C0 (Y 0)	capacitor c=load
+
+//
+// analysis
+// swp_wp sweep sub=I1 param=Wp start=Wmin stop=10*Wmin step=Wmin {
+//  swp_va dc dev=Va param=dc start=0 stop=Supply step=0.01
+//}
+//
