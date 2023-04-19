@@ -36,15 +36,6 @@ Components
 	- or
 	- 2 inverters with multiplexer for (A,B)invert
 
-
-TO DO LIST:
-
-	- XOR 
-		- [ ] Schem
-		- [ ] Layout
-	-full_adder
-		- [ ] Schem
-		- [ ] Layout
 ## 📓 Refs	
 https://acadpubl.eu/hub/2018-119-15/1/81.pdf
 
